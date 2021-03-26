@@ -151,8 +151,8 @@ class Game:
         if player_has_blackjack and dealer_has_blackjack:
             print("both players have blackjack! Draw!")
 
-        elif dealer_has_blackjack: 
-            print("Dealer has black! Dealer wins!")
+        elif player_has_blackjack: 
+            print("Player has blackjack! Player wins!")
         
         elif dealer_has_blackjack:
             print("Dealer has blackjack! Dealer wins!")

@@ -71,10 +71,10 @@ class Deck:
 class Hand:
     def __init__(self, dealer=False):
         self.dealer = dealer
-        self.cards = set()
+        self.cards = []
 
     def add_card(self, card):
-        self.cards.add(card)
+        self.cards.append(card)
 
     @property
     def value(self):

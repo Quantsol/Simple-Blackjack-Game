@@ -1,4 +1,29 @@
+import enum
 import random
+
+
+class Suit(enum.Enum):
+    SPADES = "Spades"
+    CLUBS = "Clubs"
+    HEARTS = "Hearts"
+    DIAMONDS = "Diamonds"
+
+
+class Value(enum.Enum):
+    ONE = enum.auto()
+    TWO = enum.auto()
+    THREE = enum.auto()
+    FOUR = enum.auto()
+    FIVE = enum.auto()
+    SIX = enum.auto()
+    SEVEN = enum.auto()
+    EIGHT = enum.auto()
+    NINE = enum.auto()
+    TEN = enum.auto()
+    JACK = enum.auto()
+    QUEEN = enum.auto()
+    KING = enum.auto()
+    ACE = enum.auto()
 
 
 class Card:
@@ -6,17 +31,33 @@ class Card:
         self.suit = suit
         self.value = value
 
+    @property
+    def suit(self):
+        return self._suit
+
+    @suit.setter
+    def suit(self, suit: Suit):
+        if suit not in Suit:
+            raise ValueError(f"Invalid suit. Must be one of {Suit.keys()}")
+        self._suit = suit
+
+    @property
+    def value(self):
+        return self._value
+
+    @value.setter
+    def value(self, value: Value):
+        if value not in Value:
+            raise ValueError(f"Invalid Value. Must be one of {Value.keys()}")
+        self._value = value
+
     def __repr__(self):
-        return " of ".join((self.value, self.suit))
+        return f"{self.value.name.title()} of {self.suit.value}"
 
 
 class Deck:
     def __init__(self):
-        self.cards = [
-            Card(s, v)
-            for s in ["Spades", "Clubs", "Hearts ", "Diamonds"]
-            for v in ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
-        ]
+        self.cards = [Card(s, v) for s in Suit for v in Value]
 
     def shuffle(self):
         if len(self.cards) > 1:
@@ -80,7 +121,7 @@ class Game:
             self.player_hand = Hand()
             self.dealer_hand = Hand(dealer=True)
 
-            for i in range(2):
+            for _ in range(2):
                 self.player_hand.add_card(self.deck.deal())
                 self.dealer_hand.add_card(self.deck.deal())
 

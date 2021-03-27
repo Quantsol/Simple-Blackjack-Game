@@ -10,20 +10,20 @@ class Suit(enum.Enum):
 
 
 class Value(enum.Enum):
-    ONE = enum.auto()
-    TWO = enum.auto()
-    THREE = enum.auto()
-    FOUR = enum.auto()
-    FIVE = enum.auto()
-    SIX = enum.auto()
-    SEVEN = enum.auto()
-    EIGHT = enum.auto()
-    NINE = enum.auto()
-    TEN = enum.auto()
-    JACK = enum.auto()
-    QUEEN = enum.auto()
-    KING = enum.auto()
-    ACE = enum.auto()
+    ONE = 1
+    TWO = 2
+    THREE = 3
+    FOUR = 4
+    FIVE = 5
+    SIX = 6
+    SEVEN = 7
+    EIGHT = 8
+    NINE = 9
+    TEN = 10
+    JACK = 10
+    QUEEN = 10
+    KING = 10
+    ACE = 11
 
 
 class Card:
@@ -71,31 +71,24 @@ class Deck:
 class Hand:
     def __init__(self, dealer=False):
         self.dealer = dealer
-        self.cards = []
-        self.value = 0
+        self.cards = set()
 
     def add_card(self, card):
-        self.cards.append(card)
+        self.cards.add(card)
 
-    def calculate_value(self):
-        self.value = 0
+    @property
+    def value(self):
+        value = 0
         has_ace = False
+
         for card in self.cards:
-            if card.value.isnumeric():
-                self.value += int(card.value)
-            else:
-                if card.value == "A":
-                    has_ace = True
-                    self.value += 11
-                else:
-                    self.value += 10
+            value += card.value.value
+            if not has_ace:
+                has_ace = card.value == Value.ACE
 
-        if has_ace and self.value > 21:
-            self.value -= 10
-
-    def get_value(self):
-        self.calculate_value()
-        return self.value
+        if has_ace and value > 21:
+            value -= 10
+        return value
 
     def display(self):
         if self.dealer:
@@ -104,7 +97,7 @@ class Hand:
         else:
             for card in self.cards:
                 print(card)
-            print("Value:", self.get_value())
+            print("Value:", self.value)
 
 
 class Game:
@@ -154,8 +147,8 @@ class Game:
                         game_over = True
 
                 else:
-                    player_hand_value = self.player_hand.get_value()
-                    dealer_hand_value = self.dealer_hand.get_value()
+                    player_hand_value = self.player_hand.value
+                    dealer_hand_value = self.dealer_hand.value
 
                     print("Final Results")
                     print(" Your hands:", player_hand_value)
@@ -180,14 +173,14 @@ class Game:
                 game_over = False
 
     def player_is_over(self):
-        return self.player_hand.get_value() > 21
+        return self.player_hand.value > 21
 
     def check_for_blackjack(self):
         player = False
         dealer = False
-        if self.player_hand.get_value() == 21:
+        if self.player_hand.value == 21:
             player = True
-        if self.dealer_hand.get_value() == 21:
+        if self.dealer_hand.value == 21:
             dealer = True
 
         return player, dealer

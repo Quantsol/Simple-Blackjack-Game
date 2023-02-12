@@ -10,8 +10,10 @@ Table of Contents:
 1. Installation Instructions:
 
     1. Requires python version 3.11.1 or later
-        Python can be downloaded here https://www.python.org/downloads/
+        
+        Python can be downloaded here: https://www.python.org/downloads/
     2. Download/Fork blackpack.py and run in terminal/IDE using the following command:
+        
         python blackjack.py
     3. Play the game which uses a command line interface to play
 
@@ -20,6 +22,7 @@ Table of Contents:
     Blackjack hands are scored by their point total. 
     The hand with the highest total wins as long as 21 isn't exceeded; a hand greater than 21 is said to bust. 
     Cards 2 through 10 are worth their face value, and face cards (jack, queen, king) are also worth 10.
+    
     Note: 
         In this implementation, one card from the dealer will always be hidden to the player.
         It also only allows for 1 player vs the Dealer.

@@ -29,8 +29,10 @@ Table of Contents:
 3. OOP Implementation:
 
     This version is designed with four clases: Card, Deck, Hand, and Game
+    
         * Game contains all the UI and objects storing the information of the player and dealer
         * Hand contains value of player and dealer's hand with special properties when dealing with the dealer's hand
         * Deck contains a randomized deck of cards that is shuffled every time a card is taken
         * Card contains the names of each card in the Deck and their value
-    Helper functions were added to easily check win conditions after each turn
+    
+        Helper functions were added to easily check win conditions after each turn

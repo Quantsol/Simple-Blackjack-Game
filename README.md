@@ -24,8 +24,7 @@ Table of Contents:
     Cards 2 through 10 are worth their face value, and face cards (jack, queen, king) are also worth 10.
     
     Note: 
-        In this implementation, one card from the dealer will always be hidden to the player.
-        It also only allows for 1 player vs the Dealer.
+        In this implementation, one card from the dealer will always be hidden to the player, and only allows for 1 player vs the Dealer.
 
 3. OOP Implementation:
 

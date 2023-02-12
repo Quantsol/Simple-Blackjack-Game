@@ -18,8 +18,9 @@ Installation Instructions:
 How to play blackjack?
 
     Blackjack hands are scored by their point total. 
-    The hand with the highest total wins as long as it doesn't exceed 21; a hand with a higher total than 21 is said to bust. Cards 2 through 10 are worth     their face value, and face cards (jack, queen, king) are also worth 10.
-    Note: In this implementation, one card from the dealer will always be hidden to the player and only allows for 1 player vs the Dealer.
+    The hand with the highest total wins as long as it doesn't exceed 21; a hand with a higher total than 21 is said to bust. 
+    Cards 2 through 10 are worth their face value, and face cards (jack, queen, king) are also worth 10.
+    **Note:** In this implementation, one card from the dealer will always be hidden to the player and only allows for 1 player vs the Dealer.
 
 OOP Implementation:
 

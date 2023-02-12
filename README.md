@@ -7,7 +7,7 @@ Table of Contents:
     2. How to Play?
     3. OOP Implementation
 
-Installation Instructions:
+1. Installation Instructions:
 
     1. Requires python version 3.11.1 or later
         Python can be downloaded here https://www.python.org/downloads/
@@ -15,7 +15,7 @@ Installation Instructions:
         python blackjack.py
     3. Play the game which uses a command line interface to play
 
-How to play blackjack?
+2. How to play blackjack?
 
     Blackjack hands are scored by their point total. 
     The hand with the highest total wins as long as 21 isn't exceeded; a hand greater than 21 is said to bust. 
@@ -24,7 +24,7 @@ How to play blackjack?
         In this implementation, one card from the dealer will always be hidden to the player.
         It also only allows for 1 player vs the Dealer.
 
-OOP Implementation:
+3. OOP Implementation:
 
     This version is designed with four clases: Card, Deck, Hand, and Game
         * Game contains all the UI and objects storing the information of the player and dealer
